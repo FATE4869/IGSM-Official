@@ -1,0 +1,22 @@
+python -m torch.distributed.launch --nproc_per_node=2 --master_port 22211 --use_env ddpm_train_cifar_10.py \
+--dataset="cifar10" \
+--model_path="run/pruned/cifar10/pruning_ratio_0.44/ddpm_cifar10_pruned_diff_pruning_thr_0.04" \
+--pruned_model_ckpt="run/pruned/cifar10/pruning_ratio_0.44/ddpm_cifar10_pruned_diff_pruning_thr_0.04/pruned/unet_pruned.pth" \
+--resolution=32 \
+--output_dir="run/finetuned/cifar10/pruning_ratio_0.44/ddpm_cifar10_pruned_diff_pruning_thr_0.04_pruning_ratio_0.44_jm_1e-1" \
+--project_name "ddpm_cifar10_pruned_diff_pruning_thr_0.04_pruning_ratio_0.44_jm_1e-1" \
+--train_batch_size=1 \
+--num_iters=100000 \
+--gradient_accumulation_steps=1 \
+--learning_rate=2e-4 \
+--lr_warmup_steps=0 \
+--save_model_steps 10000 \
+--dataloader_num_workers 8 \
+--adam_weight_decay 0.00 \
+--ema_max_decay 0.9999 \
+--dropout 0.1 \
+--use_ema \
+--logger wandb \
+--kd_alpha 1.0 \
+--ssm_alpha 0.0 \
+--jm_alpha 0.1

@@ -1,0 +1,10 @@
+torch=1.13.1+cu117
+torchvision=0.14.1+cu117
+torchauto=0.13.1
+torch-pruning=1.2.5
+huggingface-hub=0.25.1
+accelerate=0.30.0
+lmdb
+numpy=1.26.3
+scipy
+wandb
